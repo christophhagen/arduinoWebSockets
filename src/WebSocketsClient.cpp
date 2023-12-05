@@ -262,7 +262,7 @@ void WebSocketsClient::loop(void) {
             return;
         }
         WEBSOCKETS_YIELD();
-#if defined(ESP32)
+#if define(ESP32) && WEBSOCKETS_NETWORK_TYPE != NETWORK_W5100
         if(_client.tcp->connect(_host.c_str(), _port, WEBSOCKETS_TCP_TIMEOUT)) {
 #else
         if(_client.tcp->connect(_host.c_str(), _port)) {
